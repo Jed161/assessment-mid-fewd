@@ -30,7 +30,12 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  if (movies.length === 0) {
+    throw "No movies found"
+  } 
+  return movies.map(movies => movies.title)
+}
 
 /**
  * checkIfAnyMovieHasRating()
@@ -50,7 +55,12 @@ function getAllMovieTitles() {}
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+function checkIfAnyMovieHasRating(movies, rating="G") {
+  if(!movies.rated){
+    throw "No rating found"
+  }
+  return movies.some(movies => movies.rated === rated)
+}
 
 /**
  * findById()
@@ -68,7 +78,12 @@ function checkIfAnyMovieHasRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  if(!movies.imdbID){
+    throw "No Id found"
+  }
+  return movies.find(movies => movies.imdbID)
+} 
 
 /**
  * filterByGenre()
@@ -92,7 +107,15 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let newMovies = [];
+
+  if (!movies.genre){
+    throw "No movie genre found"
+  } return movies.filter((movie) => {
+    return movie.toUpperCase(movie.genre)
+  })
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -118,7 +141,11 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  if (!movies.released){
+    throw "No released date found"
+  }
+}
 
 /**
  * checkMinMetascores()
@@ -134,7 +161,9 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  checkMinMetascores(movies, 90));
  *  //>  false
  */
-function checkMinMetascores() {}
+function checkMinMetascores(movies, metascore) {
+
+}
 
 /**
  * getRottenTomatoesScoreByMovie()
@@ -160,7 +189,9 @@ function checkMinMetascores() {}
       { "James and the Giant Peach": "91%" },
     ];
  */
-function getRottenTomatoesScoreByMovie() {}
+function getRottenTomatoesScoreByMovie(movies) {
+
+}
 
 // Do not change anything below this line.
 module.exports = {
